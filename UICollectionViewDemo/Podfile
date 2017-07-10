@@ -1,0 +1,5 @@
+# platform :ios, '9.0'
+target 'UICollectionViewDemo' do
+  use_frameworks!
+  pod 'Kingfisher', '~> 3.10.1'
+end
