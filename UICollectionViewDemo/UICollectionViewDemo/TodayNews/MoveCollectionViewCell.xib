@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12120" systemVersion="16D30" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="MoveCollectionViewCell" customModule="UICollectionViewDemo" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="180" height="180"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="180" height="180"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O0D-Te-UOy">
+                        <rect key="frame" x="8" y="8" width="164" height="164"/>
+                        <color key="backgroundColor" red="0.95715540647506714" green="0.96064120531082153" blue="0.96494704484939575" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                <integer key="value" value="3"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </label>
+                    <button hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RJt-ig-ITe">
+                        <rect key="frame" x="161" y="3" width="16" height="16"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="16" id="Szr-BD-Aer"/>
+                            <constraint firstAttribute="height" constant="16" id="baJ-48-c2d"/>
+                        </constraints>
+                        <state key="normal" backgroundImage="collection_error"/>
+                        <connections>
+                            <action selector="removeBtnClick:" destination="gTV-IL-0wX" eventType="touchUpInside" id="nd6-aA-qMu"/>
+                        </connections>
+                    </button>
+                </subviews>
+            </view>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="O0D-Te-UOy" secondAttribute="bottom" constant="8" id="7Mx-LZ-ZLm"/>
+                <constraint firstItem="RJt-ig-ITe" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="3" id="LCz-pZ-GAe"/>
+                <constraint firstAttribute="trailing" secondItem="RJt-ig-ITe" secondAttribute="trailing" constant="3" id="PTv-mj-pZc"/>
+                <constraint firstAttribute="trailing" secondItem="O0D-Te-UOy" secondAttribute="trailing" constant="8" id="llA-N9-86r"/>
+                <constraint firstItem="O0D-Te-UOy" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="8" id="rmU-A7-Xqm"/>
+                <constraint firstItem="O0D-Te-UOy" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="8" id="wsN-yl-OdZ"/>
+            </constraints>
+            <size key="customSize" width="184" height="89"/>
+            <connections>
+                <outlet property="removeBtn" destination="RJt-ig-ITe" id="IZl-wF-dZg"/>
+                <outlet property="titleLabel" destination="O0D-Te-UOy" id="sFT-8c-bgj"/>
+            </connections>
+            <point key="canvasLocation" x="32" y="71"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="collection_error" width="20" height="20"/>
+    </resources>
+</document>
