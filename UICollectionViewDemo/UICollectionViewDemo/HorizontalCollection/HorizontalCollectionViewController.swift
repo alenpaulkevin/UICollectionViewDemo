@@ -32,7 +32,7 @@ class HorizontalCollectionViewController: UIViewController {
       //  layout.itemSize = CGSize(width: (view.bounds.width - margin * 5) / 4, height: (view.bounds.width - margin * 3) / 4);
         layout.minimumLineSpacing = margin
         layout.minimumInteritemSpacing = margin
-        layout.sectionInset = UIEdgeInsetsMake(margin, margin, margin, margin)
+        layout.sectionInset = UIEdgeInsets(top: margin, left: margin, bottom: margin, right: margin)
         layout.scrollDirection = .horizontal
         // 创建collection
         collectionView = UICollectionView(frame: CGRect(x: 0, y: 80, width: view.bounds.width, height: 380), collectionViewLayout: layout)

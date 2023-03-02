@@ -30,7 +30,7 @@ class WaterFlowViewController: UIViewController {
         let margin: CGFloat = 8
         layout.minimumLineSpacing = margin
         layout.minimumInteritemSpacing = margin
-        layout.sectionInset = UIEdgeInsetsMake(0, margin, 0, margin)
+        layout.sectionInset = UIEdgeInsets(top: 0, left: margin, bottom: 0, right: margin)
         // 创建collection
         collectionView = UICollectionView(frame: view.bounds, collectionViewLayout: layout)
         collectionView.backgroundColor = .white

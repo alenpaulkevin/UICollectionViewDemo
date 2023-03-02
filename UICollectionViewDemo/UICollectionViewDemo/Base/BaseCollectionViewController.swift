@@ -35,7 +35,7 @@ class BaseCollectionViewController: UIViewController {
     layout.minimumInteritemSpacing = margin
     
     // 每组item的边缘切距
-    layout.sectionInset = UIEdgeInsetsMake(0, margin, 0, margin)
+        layout.sectionInset = UIEdgeInsets(top: 0, left: margin, bottom: 0, right: margin)
     
     // 滚动方向
     layout.scrollDirection = .vertical
@@ -51,8 +51,8 @@ class BaseCollectionViewController: UIViewController {
     collectionView.register(BaseCollectionViewCell.self, forCellWithReuseIdentifier: baseCellID)
     
     // 注册头尾部视图，它们必须继承自UICollectionReuseView
-    collectionView.register(UINib(nibName: "BaseHeaderAndFooterCollectionReusableView", bundle: nil), forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: baseReuseHeaderID)
-    collectionView.register(UINib(nibName: "BaseHeaderAndFooterCollectionReusableView", bundle: nil), forSupplementaryViewOfKind: UICollectionElementKindSectionFooter, withReuseIdentifier: baseReuseFooterID)
+        collectionView.register(UINib(nibName: "BaseHeaderAndFooterCollectionReusableView", bundle: nil), forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: baseReuseHeaderID)
+        collectionView.register(UINib(nibName: "BaseHeaderAndFooterCollectionReusableView", bundle: nil), forSupplementaryViewOfKind: UICollectionView.elementKindSectionFooter, withReuseIdentifier: baseReuseFooterID)
         
         view.addSubview(collectionView)
     }
@@ -75,13 +75,13 @@ extension BaseCollectionViewController: UICollectionViewDataSource {
     
     // 头尾部的数据源协议
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-        if kind == UICollectionElementKindSectionHeader {
-            let header = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionElementKindSectionHeader, withReuseIdentifier: baseReuseHeaderID, for: indexPath) as! BaseHeaderAndFooterCollectionReusableView
+        if kind == UICollectionView.elementKindSectionHeader {
+            let header = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: baseReuseHeaderID, for: indexPath) as! BaseHeaderAndFooterCollectionReusableView
             header.backgroundColor = .purple
             header.textLabel.text = "第 \(indexPath.section) 组的头部"
             return header
         }
-        let footer = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionElementKindSectionFooter, withReuseIdentifier: baseReuseFooterID, for: indexPath) as! BaseHeaderAndFooterCollectionReusableView
+        let footer = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionFooter, withReuseIdentifier: baseReuseFooterID, for: indexPath) as! BaseHeaderAndFooterCollectionReusableView
         footer.textLabel.text = "第 \(indexPath.section) 组的尾部"
         footer.backgroundColor = .lightGray
         return footer
