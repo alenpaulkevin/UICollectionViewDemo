@@ -39,7 +39,7 @@ class CoverFlowViewController: UIViewController {
                 return
             }
             // 把cell放到最前面
-            collectionView.bringSubview(toFront: letCell)
+            collectionView.bringSubviewToFront(letCell)
         }
     }
     
@@ -54,7 +54,7 @@ class CoverFlowViewController: UIViewController {
         layout.itemSize = CGSize(width: itemW, height: itemH);
         layout.minimumLineSpacing = margin
         layout.minimumInteritemSpacing = margin
-        layout.sectionInset = UIEdgeInsetsMake(margin, margin, margin, margin)
+        layout.sectionInset = UIEdgeInsets(top: margin, left: margin, bottom: margin, right: margin)
         layout.scrollDirection = .horizontal
         // 创建collection
         collectionView = UICollectionView(frame: CGRect(x: 0, y: 180, width: view.bounds.width, height: collH), collectionViewLayout: layout)

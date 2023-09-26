@@ -50,14 +50,14 @@ class MoveCollectionViewController: UICollectionViewController {
         // 最小item之间的距离
         layout.minimumInteritemSpacing = margin
         // 每组item的边缘切距
-        layout.sectionInset = UIEdgeInsetsMake(0, margin, 15, margin)
+        layout.sectionInset = UIEdgeInsets(top: 0, left: margin, bottom: 15, right: margin)
         // 头部视图的大小
         layout.headerReferenceSize = CGSize(width: view.bounds.width, height: 50)
         collectionView?.collectionViewLayout = layout
                 
         // 注册cell和头部视图
         self.collectionView!.register(UINib.init(nibName: "MoveCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: cellReuseIdentifier)
-        self.collectionView?.register(UINib.init(nibName: "MoveHeaderCollectionReusableView", bundle: nil), forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: headerReuseIdentifier)
+        self.collectionView?.register(UINib.init(nibName: "MoveHeaderCollectionReusableView", bundle: nil), forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: headerReuseIdentifier)
         
         // 给collectionView添加长按手势
         let longPress = UILongPressGestureRecognizer(target: self, action: #selector(longPressGestureRecognized(_:)))
@@ -71,7 +71,7 @@ class MoveCollectionViewController: UICollectionViewController {
     
     // MARK: Events
     
-    func rightItemClick(_ item: UIBarButtonItem) {
+    @objc func rightItemClick(_ item: UIBarButtonItem) {
         if navigationItem.rightBarButtonItem?.title == "编辑" {
             navigationItem.rightBarButtonItem?.title = "完成"
             isEdit = true
@@ -84,13 +84,13 @@ class MoveCollectionViewController: UICollectionViewController {
     }
     
     /// 给collectionView添加pan手势
-    func panGestureRecognized(_ sender: UIPanGestureRecognizer) {
+    @objc func panGestureRecognized(_ sender: UIPanGestureRecognizer) {
         guard self.isEdit else { return }
         handleGesture(sender)
     }
     
     /// 给collectionView添加长按手势
-    func longPressGestureRecognized(_ sender: UILongPressGestureRecognizer) {
+    @objc func longPressGestureRecognized(_ sender: UILongPressGestureRecognizer) {
         handleGesture(sender)
     }
 
@@ -146,7 +146,7 @@ class MoveCollectionViewController: UICollectionViewController {
             guard let letOriginalIndexPath = originalIndexPath, snapshot != nil else {
                 return
             }
-            let attributes =  collectionView?.layoutAttributesForSupplementaryElement(ofKind: UICollectionElementKindSectionHeader, at: IndexPath(item: 0, section: 1))
+            let attributes =  collectionView?.layoutAttributesForSupplementaryElement(ofKind: UICollectionView.elementKindSectionHeader, at: IndexPath(item: 0, section: 1))
             // 如果在第二组的位置，让它移动到第二组
             if fingerLocation.y > attributes!.frame.maxY {
                 collectionView?.performBatchUpdates({
@@ -295,7 +295,7 @@ extension MoveCollectionViewController {
     
     /// 头部视图
     override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-        let headReuseView = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionElementKindSectionHeader, withReuseIdentifier: headerReuseIdentifier, for: indexPath) as! MoveHeaderCollectionReusableView
+        let headReuseView = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: headerReuseIdentifier, for: indexPath) as! MoveHeaderCollectionReusableView
         if indexPath.section == 0 {
             headReuseView.titleLabel.text = "我的频道"
             headReuseView.detaiLabel.text = "拖拽可以排序"

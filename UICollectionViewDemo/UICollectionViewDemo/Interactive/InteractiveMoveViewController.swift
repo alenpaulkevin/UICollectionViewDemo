@@ -40,7 +40,7 @@ class InteractiveMoveViewController: UIViewController {
         layout.minimumInteritemSpacing = margin
         
         // 每组item的边缘切距
-        layout.sectionInset = UIEdgeInsetsMake(0, margin, 0, margin)
+        layout.sectionInset = UIEdgeInsets(top: 0, left: margin, bottom: 0, right: margin)
         
         // 滚动方向
         layout.scrollDirection = .vertical
@@ -64,7 +64,7 @@ class InteractiveMoveViewController: UIViewController {
         collectionView.addGestureRecognizer(longPressGesture)
     }
     
-    func handleLongGesture(_ gesture: UILongPressGestureRecognizer) {
+    @objc func handleLongGesture(_ gesture: UILongPressGestureRecognizer) {
         
         switch(gesture.state) {
             

@@ -55,7 +55,7 @@ class PrefecthingCollectionViewController: UICollectionViewController {
         // 最小item之间的距离
         layout.minimumInteritemSpacing = margin
         // 每组item的边缘切距
-        layout.sectionInset = UIEdgeInsetsMake(0, margin, 15, margin)
+        layout.sectionInset = UIEdgeInsets(top: 0, left: margin, bottom: 15, right: margin)
         collectionView?.collectionViewLayout = layout
         collectionView?.backgroundColor = .white
         
@@ -74,7 +74,7 @@ class PrefecthingCollectionViewController: UICollectionViewController {
 
     }
     
-    func clearCache() {
+    @objc func clearCache() {
         KingfisherManager.shared.cache.clearMemoryCache()
         KingfisherManager.shared.cache.clearDiskCache()
     }
